@@ -196,10 +196,10 @@
 
 :is(.navbar__user-info, .cart-details, .option-list, .notify)::before {
     content: "";
-    display: block;
     position: absolute;
     top: -20px;
     right: 33px;
+    overflow: visible;
     border-style: solid;
     border-width: 10px 12px;
     border-color: transparent transparent var(--white-color) transparent;
@@ -590,8 +590,6 @@
     top: 33px;
     list-style: none;
     display: none;
-    max-height: 56vh;
-    overflow-y: auto;
 }
 
 .cart-details::before {
@@ -629,6 +627,8 @@
 .cart-details__list {
     display: flex;
     flex-direction: column;
+    max-height: 56vh;
+    overflow-y: auto;
 }
 
 .cart-details__item {
