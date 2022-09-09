@@ -1,11 +1,17 @@
 :root {
     --gutter: 5px;
+    --header-height: 122px;
+    --header-with-search-height: 86px;
+    --header-soft-bar-height: 0;
+
     --white-color: #fff;
     --black-color: #000;
     --text-color: #333;
     --primary-color: #fd6032;
     --border-color: #dbdbdb;
     --star-gold-color: #ffce3e;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 * {
@@ -19,42 +25,6 @@ html {
     font-size: 62.5%;
     line-height: 1.6rem;
     font-family: "roboto", sans-serif;
-}
-
-.grid {
-    width: 1200px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
-.grid__row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: calc(var(--gutter) * -1);
-    margin-right: calc(var(--gutter) * -1);
-}
-
-.grid__column-2,
-.grid__column-10,
-.grid__column-10-2 {
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
-}
-
-.grid__column-2 {
-    width: calc(2 / 12 * 100%);
-}
-
-.grid__column-10 {
-    width: calc(10 / 12 * 100%);
-}
-
-.grid__column-10-2 {
-    width: 20%;
 }
 
 /* Bổ sung */
@@ -106,6 +76,17 @@ html {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes topDownFadeIn {
+    from {
+        opacity: 0;
+        scale: 1 0;
+    }
+    to {
+        opacity: 1;
+        scale: 1 1;
     }
 }
 
@@ -206,6 +187,14 @@ html {
     background-color: var(--white-color);
     border-radius: 2px;
     animation: fadeIn 0.1s linear;
+}
+
+.filter-soft__list::before {
+    content: "";
+    position: absolute;
+    height: 10px;
+    width: 100%;
+    top: -8px;
 }
 
 .filter-soft:hover .filter-soft__list {
